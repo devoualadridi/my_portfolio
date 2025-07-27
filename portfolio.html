@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>my portfolio</title>
+    <style>
+ 
+ 
+:root {
+  --main-bg: #1e1b2e;
+  --accent: #d6a8b1; 
+  --text-color: #f4f4f4;
+  --card-bg: #2b273a;
+  --hover-color: #b98e99;
+  --shadow: rgba(0, 0, 0, 0.3);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--main-bg);
+  font-family: 'Inter', sans-serif;
+  color: var(--text-color);
+  line-height: 1.6;
+  padding: 2rem;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 2rem;
+  background: var(--card-bg);
+  border-radius: 20px;
+  box-shadow: 0 10px 25px var(--shadow);
+}
+
+header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5rem;
+    color:#dcadd498;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.my-name{
+    color:#b04d9fbe;
+    font-weight: bold;
+
+}
+
+
+
+section {
+  margin-top: 2rem;
+}
+
+section h2 {
+ color: #b769a9;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+
+section h2::after {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: var(--accent);
+  margin-top: 5px;
+  border-radius: 5px;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+ul li {
+  background: #443c58;
+  margin-bottom: 0.6rem;
+  padding: 0.6rem 1rem;
+  border-left: 4px solid var(--accent);
+  border-radius: 15px;
+  transition: all 0.3s ease;
+}
+
+ul li:hover {
+  background: var(--hover-color);
+  color: #1e1b2e;
+}
+.main-nav {
+
+  position:relative; 
+  z-index: 10;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+
+.main-nav ul {
+  list-style:none;
+  margin: 0 ;
+  padding: 0;
+  display: flex;
+  justify-content:center;
+  gap: 90px;
+}
+
+
+.main-nav ul li a {
+  color: rgb(252, 250, 252);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+
+.main-nav ul li a:hover {
+  color: #c075b2;
+}
+.skill {
+  display: inline-block;
+  margin: 20px;
+  text-align: center;
+  position: relative;
+}
+.about {
+  max-width: 600px;
+  margin: 0;
+  padding: 0px;
+  line-height: 1.8;
+  font-family: 'Segoe UI', sans-serif;
+  color: #faedf3e6;
+}
+
+.about strong{
+  font-size: 20px;
+  color: #87467fe3; 
+}
+
+.about h3 {
+  margin-top: 20px;
+  color: #cd8dc2c9;
+  font-size: 22px;
+}
+
+.about blockquote {
+  font-style: italic;
+  color: #f9f7f9;
+  border-left: 4px solid #892069;
+  padding-left: 10px;
+  margin: 15px 0;
+}
+
+.about .motto {
+  font-weight: bold;
+  color: #d3d3d3;
+}
+
+.circle {
+  transform: rotate(-90deg);
+}
+
+.bg,
+.progress {
+  fill: none;
+  stroke-width: 10;
+  cx: 60;
+  cy: 60;
+  r: 50;
+}
+
+
+
+.skills-section h2 {
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  color: #fbd5e5; 
+}
+
+.skills-container {
+  display:flexbox;
+  justify-content:left;
+  gap: 2rem;
+}
+
+.skill {
+  display:flexbox;
+  flex-direction: column;
+  align-items:center;
+}
+
+.circle-svg {
+  width: 150px;
+  height: 150px;
+  transform: rotate(-10deg);
+}
+
+.bg {
+  fill: none;
+  stroke: #f9eeee;
+  stroke-width: 3.8;
+}
+
+.progress {
+  fill: none;
+  stroke: #f890b4; 
+  stroke-width: 3.8;
+  stroke-linecap: round;
+  stroke-dasharray: 0, 100;
+  transition: stroke-dasharray 1s ease;
+}
+
+/* النسب: */
+.p75 { stroke-dasharray: 75, 100; }
+.p50 { stroke-dasharray: 50, 100; }
+.p30 { stroke-dasharray: 30, 100; }
+.p50 { stroke-dasharray: 50, 100;  }
+
+.skill span {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+}
+.circle-photo {
+  width: 300px;
+  height: 300px;
+  margin: auto;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #800020, #aaa);
+  padding: 5px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+
+.circle-photo img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid white;
+}
+.contact {
+  background-color: #f6ddec;
+  padding: 2rem;
+  border-radius: 20px;
+  max-width: 550px;
+  margin: auto;
+  text-align:center;
+  font-family: 'Segoe UI', sans-serif;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.contact ul {
+  list-style: none;
+  padding: 0;
+ 
+}
+.contact li {
+  margin: 1rem 0;
+  font-size: 1.1rem;
+  
+}
+
+.contact a {
+  color: #130112;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact a:hover {
+  color: #441c56;
+}
+
+
+
+.contact ul {
+  list-style: none;
+  padding: 0;
+}
+
+.contact li {
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.contact i {
+  margin-right: 10px;
+  color: #840e6b; 
+}
+footer {
+  text-align: center;
+  margin-top: 3rem;
+  font-size: 0.9rem;
+  color: #999;
+}
+
+  
+</style>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+<body>
+
+   <header>
+    <nav class="main-nav">
+    <ul>
+      <li><a href="#about">About Me</a></li>
+      <li><a href="#skills">My Skills</a></li>
+      <li><a href="#projects">My Projects</a></li>
+      <li><a href="#contact">Contact Me</a></li>
+    </ul>
+  </nav>
+  <br>
+  <br>
+  
+ 
+    <div class="circle-photo">
+  <img src= "photo2.jpg" alt="Profile Picture" width="150" height="150">
+</div>
+    
+    <h1> Hi,I'm<spam class="my-name"> Dridi Ouala</spam> <br>Frontend Web Developer</h1>
+    
+  </header>
+
+
+  
+
+  <section id="about">
+    <h2>About Me</h2>
+<section class="about">
+ <strong>I'm A Computer Science</strong>
+  <p> student at Ferhat Abbas University – Sétif, and a web developer at the beginning of her journey — but to me, it’s more than just code.</p>
+  <p>I believe this field is not merely a career, but a message — a fingerprint left behind with every line I write.</p>
+  <p>In the world of computer science, talent alone is never enough — and standing still means falling behind.</p>
+  <p>Since I chose this path, I’ve committed to leaving a mark, not just being another number. To build something meaningful. Something that lasts.</p>
+  <h3>My guiding motto:</h3>
+  <blockquote>“Think. Code. Impact.”</blockquote>
+  <p class="motto">Because ideas spark change, code brings them to life, and impact is the true purpose.</p>
+</section>
+
+  <section id="skills">
+    <h2>My Skills</h2>
+    <ul>
+      <li>HTML</li>
+      <li>CSS</li>
+      <li>JavaScript</li>
+  
+      <li>Python</li>
+    </ul>
+  </section>
+<section class="skills-section">
+  
+  <div class="skills-container">
+    <div class="skill">
+      <svg viewBox="0 0 36 36" class="circle-svg">
+        <path class="bg" d="M18 2.0845
+          a 15.9155 15.9155 0 0 1 0 31.831
+          a 15.9155 15.9155 0 0 1 0 -31.831" />
+        <path class="progress p75" d="M18 2.0845
+          a 15.9155 15.9155 0 0 1 0 31.831
+          a 15.9155 15.9155 0 0 1 0 -31.831" />
+      </svg>
+      <span>HTML</span>
+    </div>
+
+    <div class="skill">
+      <svg viewBox="0 0 36 36" class="circle-svg">
+        <path class="bg" d="M18 2.0845
+          a 15.9155 15.9155 0 0 1 0 31.831
+          a 15.9155 15.9155 0 0 1 0 -31.831" />
+        <path class="progress p50" d="M18 2.0845
+          a 15.9155 15.9155 0 0 1 0 31.831
+          a 15.9155 15.9155 0 0 1 0 -31.831" />
+      </svg>
+      <span>CSS</span>
+    </div>
+
+    <div class="skill">
+      <svg viewBox="0 0 36 36" class="circle-svg">
+        <path class="bg" d="M18 2.0845
+          a 15.9155 15.9155 0 0 1 0 31.831
+          a 15.9155 15.9155 0 0 1 0 -31.831" />
+        <path class="progress p30" d="M18 2.0845
+          a 15.9155 15.9155 0 0 1 0 31.831
+          a 15.9155 15.9155 0 0 1 0 -31.831" />
+      </svg>
+      <span>JavaScript</span>
+      <div class="skill">
+      <svg viewBox="0 0 36 36" class="circle-svg">
+        <path class="bg" d="M18 2.0845
+          a 15.9155 15.9155 0 0 1 0 31.831
+          a 15.9155 15.9155 0 0 1 0 -31.831" />
+        <path class="progress p50" d="M18 2.0845
+          a 15.9155 15.9155 0 0 1 0 31.831
+          a 15.9155 15.9155 0 0 1 0 -31.831" />
+      </svg>
+      <span>Python</span>
+    </div>
+  </div>
+</section>
+  <section id="projects">
+    <h2>My Projects</h2>
+    <ul>
+      <li>_________</li>
+      <li>_________</li>
+      <li>_________</li>
+    </ul>
+  </section>
+    <h2>Contact Me</h2>
+<section id="contact" class="contact">
+
+  <ul>
+    <li><i class="fab fa-telegram"></i> Telegram:<a href="http://t.me/Oualadr" target="_blank">@Oualadr</a></li>
+    <li><i class="fas fa-envelope"></i> Email: <a href="mailto:dridiouala810@gmail.com" target="_blank"> dridiouala810@gmail.com </a></li>
+    <li><i class="fab fa-github"></i> GitHub: <a href="https://github.com/devoualadridi" target="_blank">devoualadridi</a></li>
+  </ul>
+</section>
+
+  <footer>
+    <p>&copy; 2025 Dridi Ouala.</p>
+  </footer>
+
+</body>
+</html>
