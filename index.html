@@ -13,15 +13,15 @@
 
   <style>
     :root{
-      --bg:#0a0812;
-      --bg-soft:#100d1b;
+      --bg:#0d0b14;
+      --bg-soft:#14111d;
       --card:rgba(255,255,255,.055);
       --card-strong:#171224;
       --text:#f8f5fb;
-      --muted:#aaa3b5;
-      --accent:#d77ac4;
-      --accent-2:#8f6cff;
-      --accent-3:#ffb4d9;
+      --muted:#bbb4c3;
+      --accent:#cf82bc;
+      --accent-2:#9b83e8;
+      --accent-3:#efb7d5;
       --line:rgba(255,255,255,.1);
       --shadow:0 30px 90px rgba(0,0,0,.45);
       --mx:50vw;
@@ -34,8 +34,8 @@
       min-height:100vh;
       overflow-x:hidden;
       background:
-        radial-gradient(circle at var(--mx) var(--my), rgba(215,122,196,.12), transparent 26rem),
-        radial-gradient(circle at 85% 15%, rgba(143,108,255,.12), transparent 24rem),
+        radial-gradient(circle at var(--mx) var(--my), rgba(207,130,188,.085), transparent 28rem),
+        radial-gradient(circle at 85% 15%, rgba(155,131,232,.075), transparent 26rem),
         var(--bg);
       color:var(--text);
       font-family:"DM Sans",sans-serif;
@@ -46,7 +46,7 @@
       position:fixed;inset:0;pointer-events:none;z-index:-1;
       background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),
                        linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);
-      background-size:60px 60px;
+      background-size:72px 72px;
       mask-image:linear-gradient(to bottom,black,transparent 85%);
     }
     a{color:inherit}
@@ -219,6 +219,162 @@
     @media(prefers-reduced-motion:reduce){
       *{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}
     }
+
+    /* Enhanced mobile experience */
+    @media(max-width:650px){
+      body{
+        background:
+          radial-gradient(circle at 50% 10%, rgba(207,130,188,.09), transparent 22rem),
+          var(--bg);
+      }
+      body::before{opacity:.45;background-size:80px 80px}
+      .nav{
+        width:calc(100% - 24px);
+        padding:10px 12px 10px 16px;
+        background:rgba(13,11,20,.88);
+        backdrop-filter:blur(18px);
+        -webkit-backdrop-filter:blur(18px);
+      }
+      .brand{font-size:1rem}
+      .menu-btn{
+        width:42px;height:42px;border-radius:50%;
+        background:rgba(255,255,255,.06);
+      }
+      .nav-links{
+        top:58px;padding:10px;
+        box-shadow:0 22px 60px rgba(0,0,0,.45);
+      }
+      .nav-links a{padding:12px 14px}
+
+      .hero{
+        min-height:auto;
+        padding:125px 20px 75px;
+        gap:42px;
+      }
+      .eyebrow{font-size:.7rem;letter-spacing:.14em}
+      .eyebrow::before{width:22px}
+      .hero h1{
+        font-size:clamp(3.15rem,16vw,4.8rem);
+        line-height:.94;
+        margin:18px 0 22px;
+      }
+      .hero-copy{
+        font-size:.98rem;
+        line-height:1.8;
+        max-width:34rem;
+      }
+      .typing-line{
+        margin-top:16px;
+        min-height:28px;
+        font-size:.92rem;
+      }
+      .hero-actions{
+        display:grid;
+        grid-template-columns:1fr;
+        width:100%;
+        gap:10px;
+        margin-top:27px;
+      }
+      .btn{
+        width:100%;
+        min-height:50px;
+        padding:12px 18px;
+      }
+
+      .visual{min-height:330px}
+      .photo-wrap{width:230px;box-shadow:0 25px 65px rgba(143,108,255,.18)}
+      .orbit.one{width:265px;height:265px}
+      .orbit.two{width:310px;height:310px}
+      .floating-badge{
+        padding:9px 12px;
+        border-radius:13px;
+        background:rgba(18,14,31,.86);
+      }
+      .badge-a{top:12%;right:1%}
+      .badge-b{bottom:12%;left:1%}
+
+      .marquee{padding:12px 0}
+      .marquee-track{gap:30px;font-size:.68rem}
+      .marquee-track span::after{margin-left:30px}
+
+      main{padding:0 16px}
+      section{padding:76px 0}
+      .section-head{margin-bottom:32px}
+      .section-kicker{font-size:.7rem}
+      .section-title{
+        font-size:clamp(2.55rem,13vw,4rem);
+        line-height:1.02;
+      }
+
+      .glass{
+        border-radius:22px;
+        box-shadow:0 18px 55px rgba(0,0,0,.28);
+      }
+      .about-grid{gap:14px}
+      .about-card{padding:24px}
+      .about-card.big{min-height:auto}
+      .quote{
+        font-size:clamp(1.85rem,9vw,2.7rem);
+        margin-bottom:26px;
+      }
+      .mini-grid{gap:12px}
+      .mini{min-height:auto;padding:22px}
+      .mini i{margin-bottom:18px}
+
+      .skills-wrap{gap:12px}
+      .skill-card{min-height:auto;padding:22px}
+      .skill-icon{margin-bottom:20px}
+
+      .projects{gap:18px}
+      .project{border-radius:24px}
+      .project-visual{min-height:235px}
+      .mock-browser{inset:10% 7%;border-radius:13px}
+      .project-info{padding:26px 22px 28px}
+      .project-info h3{
+        font-size:clamp(2rem,11vw,3rem);
+        margin:9px 0 14px;
+      }
+      .project-info p{font-size:.94rem;line-height:1.75}
+      .tags{margin:18px 0 23px}
+      .project-link{
+        min-height:46px;
+        align-items:center;
+      }
+
+      .contact-card{
+        padding:42px 20px;
+        border-radius:26px;
+      }
+      .contact-card h2{
+        font-size:clamp(2.7rem,13vw,4.3rem);
+        line-height:1;
+      }
+      .contact-card p{line-height:1.8}
+      .socials{gap:9px}
+      .social{width:47px;height:47px}
+      footer{
+        padding:28px 20px 38px;
+        font-size:.8rem;
+        line-height:1.7;
+      }
+    }
+
+    @media(max-width:380px){
+      .hero{padding-inline:15px}
+      main{padding-inline:12px}
+      .hero h1{font-size:3rem}
+      .photo-wrap{width:205px}
+      .orbit.one{width:235px;height:235px}
+      .orbit.two{width:275px;height:275px}
+      .floating-badge{font-size:.67rem;padding:8px 9px}
+      .section-title{font-size:2.45rem}
+    }
+
+    @media(hover:none){
+      .project:hover,.skill-card:hover,.btn:hover,.social:hover{transform:none}
+      .cursor-dot,.cursor-ring{display:none}
+    }
+
   </style>
 </head>
 <body>
@@ -228,7 +384,7 @@
 
   <nav class="nav">
     <a class="brand" href="#home">Ouala<span>.</span></a>
-    <button class="menu-btn" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
+    <button class="menu-btn" aria-label="Open menu" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#skills">Skills</a></li>
@@ -353,8 +509,17 @@
     // Mobile navigation
     const menuBtn = document.querySelector('.menu-btn');
     const navLinks = document.querySelector('.nav-links');
-    menuBtn.addEventListener('click', () => navLinks.classList.toggle('open'));
-    document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+    menuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+      const icon = menuBtn.querySelector('i');
+      icon.className = navLinks.classList.contains('open') ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+      menuBtn.setAttribute('aria-expanded', navLinks.classList.contains('open'));
+    });
+    document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      menuBtn.querySelector('i').className = 'fa-solid fa-bars';
+      menuBtn.setAttribute('aria-expanded', 'false');
+    }));
 
     // Scroll progress + active navigation
     const progressBar = document.getElementById('progressBar');
