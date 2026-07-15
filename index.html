@@ -3,17 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>my portfolio</title>
+    <title>Dridi Ouala | Portfolio</title>
+    
+    <!-- مكتبات الأيقونات والتحريكات العالمية -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- مكتبة لجعل النص يكتب نفسه تفاعلياً -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
     <style>
- 
- 
 :root {
-  --main-bg: #1e1b2e;
+  --main-bg: #141124; /* تم تغميقه قليلاً ليعطي طابعاً سينمائياً للموقع */
   --accent: #d6a8b1; 
   --text-color: #f4f4f4;
-  --card-bg: #2b273a;
+  --card-bg: #1d1a31;
   --hover-color: #b98e99;
-  --shadow: rgba(0, 0, 0, 0.3);
+  --shadow: rgba(0, 0, 0, 0.5);
+  --primary-purple: #b04d9f;
+  --light-purple: #cd8dc2;
 }
 
 * {
@@ -22,141 +29,200 @@
   box-sizing: border-box;
 }
 
+/* تحسين شريط التمرير (Scrollbar) ليناسب طابع التصميم */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--main-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--primary-purple);
+  border-radius: 10px;
+}
+
 body {
   background: var(--main-bg);
   font-family: 'Inter', sans-serif;
   color: var(--text-color);
   line-height: 1.6;
   padding: 2rem;
+  overflow-x: hidden;
 }
 
 .container {
-  max-width: 900px;
+  max-width: 1000px;
   margin: auto;
-  padding: 2rem;
+  padding: 3rem;
   background: var(--card-bg);
-  border-radius: 20px;
-  box-shadow: 0 10px 25px var(--shadow);
+  border-radius: 24px;
+  box-shadow: 0 20px 50px var(--shadow);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+header {
+  text-align: center;
+  padding: 4rem 0 2rem 0;
 }
 
 header h1 {
   font-family: 'Playfair Display', serif;
   font-size: 3.5rem;
-    color:#dcadd498;
+  color: #dcadd498;
   text-align: center;
-  margin-bottom: 1rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 20px rgba(220, 173, 212, 0.2);
 }
 
 .my-name{
-    color:#b04d9fbe;
+    color: var(--primary-purple);
     font-weight: bold;
-
+    text-shadow: 0 0 15px rgba(176, 77, 159, 0.5);
 }
 
-
+/* النص التفاعلي التلقائي */
+.typed-cursor {
+  color: var(--accent);
+  font-size: 2rem;
+}
 
 section {
-  margin-top: 2rem;
+  margin-top: 4rem;
 }
 
 section h2 {
  color: #b769a9;
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
-  position: relative;
+ font-size: 2rem;
+ margin-bottom: 1.5rem;
+ position: relative;
+ text-transform: uppercase;
+ letter-spacing: 1px;
 }
 
 section h2::after {
   content: "";
   display: block;
-  width: 50px;
-  height: 3px;
+  width: 60px;
+  height: 4px;
   background: var(--accent);
-  margin-top: 5px;
+  margin-top: 8px;
   border-radius: 5px;
+  transition: width 0.3s ease;
 }
 
-ul {
+section:hover h2::after {
+  width: 120px; /* تمدد الخط بشكل تفاعلي عند تمرير الماوس */
+}
+
+/* قائمة المهارات الكلاسيكية */
+.skills-list {
   list-style: none;
   padding-left: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 3rem;
 }
 
-ul li {
+.skills-list li {
   background: #443c58;
-  margin-bottom: 0.6rem;
-  padding: 0.6rem 1rem;
-  border-left: 4px solid var(--accent);
-  border-radius: 15px;
-  transition: all 0.3s ease;
+  margin-bottom: 0;
+  padding: 0.8rem 1.5rem;
+  border-left: 5px solid var(--accent);
+  border-radius: 12px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-ul li:hover {
+.skills-list li:hover {
   background: var(--hover-color);
   color: #1e1b2e;
+  transform: translateX(10px) scale(1.03);
 }
+
+/* نافيجشن بار احترافي ثابت */
 .main-nav {
-
-  position:relative; 
-  z-index: 10;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  margin-bottom: 30px;
+  position: fixed; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(30, 27, 46, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  padding: 15px 0;
 }
-
 
 .main-nav ul {
-  list-style:none;
-  margin: 0 ;
+  list-style: none;
+  margin: 0;
   padding: 0;
   display: flex;
-  justify-content:center;
-  gap: 90px;
+  justify-content: center;
+  gap: 60px;
 }
-
 
 .main-nav ul li a {
   color: rgb(252, 250, 252);
   text-decoration: none;
   font-weight: bold;
   font-size: 16px;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
+  position: relative;
 }
 
+.main-nav ul li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background-color: #c075b2;
+  transition: width 0.3s ease;
+}
+
+.main-nav ul li a:hover::after {
+  width: 100%;
+}
 
 .main-nav ul li a:hover {
   color: #c075b2;
 }
-.skill {
-  display: inline-block;
-  margin: 20px;
-  text-align: center;
-  position: relative;
-}
+
+/* قسم "عني" المطور */
 .about {
-  max-width: 600px;
+  max-width: 100%;
   margin: 0;
-  padding: 0px;
+  padding: 0;
   line-height: 1.8;
   font-family: 'Segoe UI', sans-serif;
   color: #faedf3e6;
 }
 
 .about strong{
-  font-size: 20px;
+  font-size: 22px;
   color: #87467fe3; 
+  display: block;
+  margin-bottom: 10px;
 }
 
 .about h3 {
-  margin-top: 20px;
+  margin-top: 25px;
   color: #cd8dc2c9;
-  font-size: 22px;
+  font-size: 24px;
 }
 
 .about blockquote {
   font-style: italic;
   color: #f9f7f9;
-  border-left: 4px solid #892069;
-  padding-left: 10px;
-  margin: 15px 0;
+  border-left: 5px solid #892069;
+  padding-left: 15px;
+  margin: 20px 0;
+  background: rgba(137, 32, 105, 0.05);
+  padding: 15px;
+  border-radius: 0 12px 12px 0;
 }
 
 .about .motto {
@@ -164,21 +230,7 @@ ul li:hover {
   color: #d3d3d3;
 }
 
-.circle {
-  transform: rotate(-90deg);
-}
-
-.bg,
-.progress {
-  fill: none;
-  stroke-width: 10;
-  cx: 60;
-  cy: 60;
-  r: 50;
-}
-
-
-
+/* الدوائر البيانية للمهارات */
 .skills-section h2 {
   margin-bottom: 2rem;
   font-size: 2rem;
@@ -186,26 +238,33 @@ ul li:hover {
 }
 
 .skills-container {
-  display:flexbox;
-  justify-content:left;
-  gap: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3rem;
+  margin-top: 2rem;
 }
 
 .skill {
-  display:flexbox;
+  display: flex;
   flex-direction: column;
-  align-items:center;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.skill:hover {
+  transform: translateY(-10px);
 }
 
 .circle-svg {
-  width: 150px;
-  height: 150px;
-  transform: rotate(-10deg);
+  width: 130px;
+  height: 130px;
 }
 
 .bg {
   fill: none;
-  stroke: #f9eeee;
+  stroke: rgba(249, 238, 238, 0.1);
   stroke-width: 3.8;
 }
 
@@ -214,28 +273,52 @@ ul li:hover {
   stroke: #f890b4; 
   stroke-width: 3.8;
   stroke-linecap: round;
-  stroke-dasharray: 0, 100;
-  transition: stroke-dasharray 1s ease;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+  transition: stroke-dashoffset 1.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* النسب: */
-.p75 { stroke-dasharray: 75, 100; }
-.p50 { stroke-dasharray: 50, 100; }
-.p30 { stroke-dasharray: 30, 100; }
-.p50 { stroke-dasharray: 50, 100;  }
+/* تفعيل تفاعلي للنسب */
+.p75 { stroke-dasharray: 100; stroke-dashoffset: 25; }
+.p50 { stroke-dasharray: 100; stroke-dashoffset: 50; }
+.p30 { stroke-dasharray: 100; stroke-dashoffset: 70; }
 
 .skill span {
   margin-top: 1rem;
   font-size: 1.1rem;
+  font-weight: bold;
+  color: #faedf3e6;
 }
+
+/* دائرة الصورة الاحترافية مع توهج نبضي */
 .circle-photo {
-  width: 300px;
-  height: 300px;
-  margin: auto;
+  width: 250px;
+  height: 250px;
+  margin: 50px auto 20px auto;
   border-radius: 50%;
-  background: linear-gradient(135deg, #800020, #aaa);
-  padding: 5px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+  background: linear-gradient(135deg, #800020, #b04d9f);
+  padding: 6px;
+  box-shadow: 0 0 30px rgba(176, 77, 159, 0.4);
+  position: relative;
+  transition: all 0.5s ease;
+}
+
+.circle-photo::after {
+  content: '';
+  position: absolute;
+  top: -10px; left: -10px; right: -10px; bottom: -10px;
+  border-radius: 50%;
+  border: 2px dashed rgba(214, 168, 177, 0.4);
+  animation: rotateOuter 20s linear infinite;
+}
+
+@keyframes rotateOuter {
+  100% { transform: rotate(360deg); }
+}
+
+.circle-photo:hover {
+  transform: scale(1.05) rotate(5deg);
+  box-shadow: 0 0 50px rgba(176, 77, 159, 0.7);
 }
 
 .circle-photo img {
@@ -243,191 +326,363 @@ ul li:hover {
   height: 100%;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid white;
+  border: 4px solid #1e1b2e;
 }
-.contact {
-  background-color: #f6ddec;
-  padding: 2rem;
+
+/* شبكة المشاريع الاحترافية والمبتكرة */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.project-card {
+  background: #252136;
+  border: 1px solid rgba(255, 255, 255, 0.03);
   border-radius: 20px;
-  max-width: 550px;
-  margin: auto;
-  text-align:center;
-  font-family: 'Segoe UI', sans-serif;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 4px;
+  background: linear-gradient(90deg, var(--accent), var(--primary-purple));
+  opacity: 0;
+  transition: opacity 0.3s;
+}
 
+.project-card:hover::before {
+  opacity: 1;
+}
+
+.project-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 20px 40px rgba(176, 77, 159, 0.25);
+  border-color: rgba(176, 77, 159, 0.3);
+}
+
+.project-card h3 {
+  color: var(--light-purple);
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+.project-card p {
+  color: #ccc;
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+  height: 60px;
+  overflow: hidden;
+}
+
+.project-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, var(--primary-purple), #892069);
+  color: #fff !important;
+  text-decoration: none !important;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(137, 32, 105, 0.3);
+}
+
+.project-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(176, 77, 159, 0.5);
+  background: linear-gradient(135deg, #c075b2, var(--primary-purple));
+}
+
+/* قسم تواصل معي الاحترافي */
+.contact {
+  background: linear-gradient(135deg, #1d1a31, #2d1e38);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 3rem 2rem;
+  border-radius: 24px;
+  max-width: 650px;
+  margin: 3rem auto auto auto;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.4);
+}
 
 .contact ul {
   list-style: none;
   padding: 0;
- 
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
+
 .contact li {
-  margin: 1rem 0;
-  font-size: 1.1rem;
-  
+  margin: 0;
+  font-size: 1.2rem;
+  background: rgba(255, 255, 255, 0.02);
+  padding: 12px 20px;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.02);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact li:hover {
+  transform: translateX(5px);
+  background: rgba(176, 77, 159, 0.1);
+  border-color: rgba(176, 77, 159, 0.2);
 }
 
 .contact a {
-  color: #130112;
+  color: var(--text-color);
   text-decoration: none;
+  font-weight: 600;
   transition: color 0.3s ease;
+  margin-left: 5px;
 }
 
 .contact a:hover {
-  color: #441c56;
-}
-
-
-
-.contact ul {
-  list-style: none;
-  padding: 0;
-}
-
-.contact li {
-  margin-bottom: 15px;
-  font-size: 18px;
+  color: var(--accent);
 }
 
 .contact i {
-  margin-right: 10px;
-  color: #840e6b; 
+  margin-right: 12px;
+  font-size: 1.4rem;
+  transition: transform 0.3s ease;
 }
+
+.contact li:hover i {
+  transform: scale(1.2);
+}
+
+.fa-linkedin { color: #0a66c2; }
+.fa-telegram { color: #0088cc; }
+.fa-envelope { color: #ea4335; }
+.fa-github { color: #f0f6fc; }
+
 footer {
   text-align: center;
-  margin-top: 3rem;
-  font-size: 0.9rem;
-  color: #999;
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  font-size: 0.95rem;
+  color: #777;
 }
 
-  
+/* متجاوب مع الهواتف والأجهزة اللوحية */
+@media (max-width: 768px) {
+  body { padding: 1rem; }
+  .container { padding: 1.5rem; }
+  header h1 { font-size: 2.2rem; }
+  .main-nav ul { gap: 20px; }
+  .main-nav ul li a { font-size: 14px; }
+  .circle-photo { width: 180px; height: 180px; }
+  .skills-container { gap: 1.5rem; }
+}
 </style>
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 </head>
 <body>
 
-   <header>
+  <header>
+    <!-- القائمة العلوية -->
     <nav class="main-nav">
-    <ul>
-      <li><a href="#about">About Me</a></li>
-      <li><a href="#skills">My Skills</a></li>
-      <li><a href="#projects">My Projects</a></li>
-      <li><a href="#contact">Contact Me</a></li>
-    </ul>
-  </nav>
-  <br>
-  <br>
-  
- 
-    <div class="circle-photo">
-  <img src= "photo2.jpg" alt="Profile Picture" width="150" height="150">
-</div>
-    
-    <h1> Hi,I'm<spam class="my-name"> Dridi Ouala</spam> <br>Frontend Web Developer</h1>
-    
+      <ul>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#skills">My Skills</a></li>
+        <li><a href="#projects">My Projects</a></li>
+        <li><a href="#contact">Contact Me</a></li>
+      </ul>
+    </nav>
+   
+    <!-- صورتكِ الشخصية المحمية داخل الهيكل مع التأثيرات والـ AOS -->
+    <div class="circle-photo" data-aos="zoom-in" data-aos-duration="1200">
+      <img src="photo2.jpg" alt="Profile Picture" width="150" height="150">
+    </div>
+     
+    <div data-aos="fade-up" data-aos-delay="200">
+        <h1>Hi, I'm <span class="my-name">Dridi Ouala</span></h1>
+        <!-- نص تفاعلي ديناميكي يكتب نفسه بنفسه -->
+        <h3 style="font-size: 1.8rem; margin-top: 10px;"><span id="typed-text"></span></h3>
+    </div>
   </header>
 
+  <div class="container">
 
-  
+    <!-- قسم "عني" المطور بالكامل دون نقصان -->
+    <section id="about" data-aos="fade-up">
+      <h2>About Me</h2>
+      <div class="about">
+        <strong>I'm A Computer Science Student</strong>
+        <p>at Ferhat Abbas University – Sétif, and a web developer at the beginning of her journey — but to me, it’s more than just code.</p>
+        <p>I believe this field is not merely a career, but a message — a fingerprint left behind with every line I write.</p>
+        <p>In the world of computer science, talent alone is never enough — and standing still means falling behind.</p>
+        <p>Since I chose this path, I’ve committed to leaving a mark, not just being another number. To build something meaningful. Something that lasts.</p>
+        
+        <h3>My guiding motto:</h3>
+        <blockquote>“Think. Code. Impact.”</blockquote>
+        <p class="motto">Because ideas spark change, code brings them to life, and impact is the true purpose.</p>
+      </div>
+    </section>
 
-  <section id="about">
-    <h2>About Me</h2>
-<section class="about">
- <strong>I'm A Computer Science</strong>
-  <p> student at Ferhat Abbas University – Sétif, and a web developer at the beginning of her journey — but to me, it’s more than just code.</p>
-  <p>I believe this field is not merely a career, but a message — a fingerprint left behind with every line I write.</p>
-  <p>In the world of computer science, talent alone is never enough — and standing still means falling behind.</p>
-  <p>Since I chose this path, I’ve committed to leaving a mark, not just being another number. To build something meaningful. Something that lasts.</p>
-  <h3>My guiding motto:</h3>
-  <blockquote>“Think. Code. Impact.”</blockquote>
-  <p class="motto">Because ideas spark change, code brings them to life, and impact is the true purpose.</p>
-</section>
+    <!-- قسم المهارات المطور بالكامل بالرسم والبيانات التفاعلية -->
+    <section id="skills" data-aos="fade-up">
+      <h2>My Skills</h2>
+      <!-- القائمة الأصلية المعدلة لتأثير hover احترافي -->
+      <ul class="skills-list">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+        <li>Python</li>
+      </ul>
+      
+      <!-- قسم الدوائر التفاعلية للمهارات -->
+      <div class="skills-section">
+        <div class="skills-container">
+          
+          <div class="skill" data-aos="zoom-in" data-aos-delay="100">
+            <svg viewBox="0 0 36 36" class="circle-svg">
+              <path class="bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+              <path class="progress p75" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+            </svg>
+            <span>HTML (75%)</span>
+          </div>
 
-  <section id="skills">
-    <h2>My Skills</h2>
-    <ul>
-      <li>HTML</li>
-      <li>CSS</li>
-      <li>JavaScript</li>
-  
-      <li>Python</li>
-    </ul>
-  </section>
-<section class="skills-section">
-  
-  <div class="skills-container">
-    <div class="skill">
-      <svg viewBox="0 0 36 36" class="circle-svg">
-        <path class="bg" d="M18 2.0845
-          a 15.9155 15.9155 0 0 1 0 31.831
-          a 15.9155 15.9155 0 0 1 0 -31.831" />
-        <path class="progress p75" d="M18 2.0845
-          a 15.9155 15.9155 0 0 1 0 31.831
-          a 15.9155 15.9155 0 0 1 0 -31.831" />
-      </svg>
-      <span>HTML</span>
-    </div>
+          <div class="skill" data-aos="zoom-in" data-aos-delay="200">
+            <svg viewBox="0 0 36 36" class="circle-svg">
+              <path class="bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+              <path class="progress p50" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+            </svg>
+            <span>CSS (50%)</span>
+          </div>
 
-    <div class="skill">
-      <svg viewBox="0 0 36 36" class="circle-svg">
-        <path class="bg" d="M18 2.0845
-          a 15.9155 15.9155 0 0 1 0 31.831
-          a 15.9155 15.9155 0 0 1 0 -31.831" />
-        <path class="progress p50" d="M18 2.0845
-          a 15.9155 15.9155 0 0 1 0 31.831
-          a 15.9155 15.9155 0 0 1 0 -31.831" />
-      </svg>
-      <span>CSS</span>
-    </div>
+          <div class="skill" data-aos="zoom-in" data-aos-delay="300">
+            <svg viewBox="0 0 36 36" class="circle-svg">
+              <path class="bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+              <path class="progress p30" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+            </svg>
+            <span>JavaScript (30%)</span>
+          </div>
 
-    <div class="skill">
-      <svg viewBox="0 0 36 36" class="circle-svg">
-        <path class="bg" d="M18 2.0845
-          a 15.9155 15.9155 0 0 1 0 31.831
-          a 15.9155 15.9155 0 0 1 0 -31.831" />
-        <path class="progress p30" d="M18 2.0845
-          a 15.9155 15.9155 0 0 1 0 31.831
-          a 15.9155 15.9155 0 0 1 0 -31.831" />
-      </svg>
-      <span>JavaScript</span>
-      <div class="skill">
-      <svg viewBox="0 0 36 36" class="circle-svg">
-        <path class="bg" d="M18 2.0845
-          a 15.9155 15.9155 0 0 1 0 31.831
-          a 15.9155 15.9155 0 0 1 0 -31.831" />
-        <path class="progress p50" d="M18 2.0845
-          a 15.9155 15.9155 0 0 1 0 31.831
-          a 15.9155 15.9155 0 0 1 0 -31.831" />
-      </svg>
-      <span>Python</span>
-    </div>
-  </div>
-</section>
-  <section id="projects">
-    <h2>My Projects</h2>
-    <ul>
-      <li>_________</li>
-      <li>_________</li>
-      <li>_________</li>
-    </ul>
-  </section>
-    <h2>Contact Me</h2>
-<section id="contact" class="contact">
+          <div class="skill" data-aos="zoom-in" data-aos-delay="400">
+            <svg viewBox="0 0 36 36" class="circle-svg">
+              <path class="bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+              <path class="progress p50" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+            </svg>
+            <span>Python (50%)</span>
+          </div>
 
-  <ul>
-    <li><i class="fab fa-telegram"></i> Telegram:<a href="http://t.me/Oualadr" target="_blank">@Oualadr</a></li>
-    <li><i class="fas fa-envelope"></i> Email: <a href="mailto:dridiouala810@gmail.com" target="_blank"> dridiouala810@gmail.com </a></li>
-    <li><i class="fab fa-github"></i> GitHub: <a href="https://github.com/devoualadridi" target="_blank">devoualadridi</a></li>
-  </ul>
-</section>
+        </div>
+      </div>
+    </section>
 
-  <footer>
-    <p>&copy; 2025 Dridi Ouala.</p>
-  </footer>
+    <!-- قسم المشاريع الحقيقي والأعمال الإبداعية المحدث بروابطك الفعالة -->
+    <section id="projects" data-aos="fade-up">
+      <h2>My Projects</h2>
+      <div class="projects-grid">
+        
+        <!-- المشروع 1 -->
+        <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+          <h3>Pink October</h3>
+          <p>An inspiring and visually responsive web application raising awareness about Breast Cancer with premium CSS animations.</p>
+          <a href="https://devoualadridi.github.io/pink-oktober/" target="_blank" class="project-btn">
+            Live Demo <i class="fas fa-external-link-alt"></i>
+          </a>
+        </div>
+
+        <!-- المشروع 2 -->
+        <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+          <h3>My Portfolio V1</h3>
+          <p>The original iteration of my personal portfolio. Built to showcase clean semantic HTML and custom styling rules.</p>
+          <a href="https://devoualadridi.github.io/my_portfolio/" target="_blank" class="project-btn">
+            Live Demo <i class="fas fa-external-link-alt"></i>
+          </a>
+        </div>
+
+        <!-- المشروع 3 -->
+        <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+          <h3>Interactive Quiz Game</h3>
+          <p>A fun and engaging dynamic quiz application. Tests logical and analytical skills with responsive custom grading.</p>
+          <a href="https://devoualadridi.github.io/Quiz--Game/" target="_blank" class="project-btn">
+            Live Demo <i class="fas fa-external-link-alt"></i>
+          </a>
+        </div>
+
+        <!-- المشروع 4 -->
+        <div class="project-card" data-aos="fade-up" data-aos-delay="400">
+          <h3>Forty Nawawi Hadith</h3>
+          <p>A dedicated web platform to browse, read and study the Islamic 40 Hadiths of Al-Nawawi with highly clean structure.</p>
+          <a href="https://devoualadridi.github.io/forty-nawawi-hadith/" target="_blank" class="project-btn">
+            Live Demo <i class="fas fa-external-link-alt"></i>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- قسم الاتصال مضاف إليه LinkedIn كأيقونة تفاعلية وبطريقة احترافية -->
+    <section data-aos="fade-up">
+        <h2>Contact Me</h2>
+        <div id="contact" class="contact">
+          <ul>
+            <li>
+              <i class="fab fa-linkedin"></i> LinkedIn: 
+              <a href="http://linkedin.com/in/dridi-ouala-091485391" target="_blank">Dridi Ouala</a>
+            </li>
+            <li>
+              <i class="fab fa-telegram"></i> Telegram: 
+              <a href="http://t.me/Oualadr" target="_blank">@Oualadr</a>
+            </li>
+            <li>
+              <i class="fas fa-envelope"></i> Email: 
+              <a href="mailto:dridiouala810@gmail.com" target="_blank">dridiouala810@gmail.com</a>
+            </li>
+            <li>
+              <i class="fab fa-github"></i> GitHub: 
+              <a href="https://github.com/devoualadridi" target="_blank">devoualadridi</a>
+            </li>
+          </ul>
+        </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2026 Dridi Ouala. Crafted with Passion & Code.</p>
+    </footer>
+
+  </div> <!-- نهاية حاوية الكود -->
+
+  <!-- مكتبات الجافا سكريبت لتفعيل الحركة والإبداع التفاعلي -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    // تهيئة مكتبة تحريك العناصر عند السكرول
+    AOS.init({
+      duration: 1000,
+      once: true, // تتحرك مرة واحدة فقط عند النزول لأول مرة لضمان الأداء
+      offset: 120
+    });
+
+    // تهيئة ميزة الكتابة التلقائية للنصوص في الهيدر
+    var typed = new Typed('#typed-text', {
+      strings: [
+        'Frontend Web Developer.', 
+        'Computer Science Student.', 
+        'Creative Problem Solver.'
+      ],
+      typeSpeed: 60,
+      backSpeed: 40,
+      loop: true,
+      backDelay: 1500
+    });
+  </script>
 
 </body>
 </html>
